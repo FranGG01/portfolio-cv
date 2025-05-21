@@ -1,21 +1,29 @@
+/* Reset y base */
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 body {
   font-family: 'Trebuchet MS', sans-serif;
   margin: 0;
   padding: 0;
+  background-color: #fff;
+  color: #333;
 }
 
 a {
   color: white;
   text-decoration: none;
+  transition: color 0.3s ease;
 }
-
-a:hover {
+.proyects a{
+  color:black;
+}
+a:hover, a:focus {
   color: #debfb0;
+  outline: none;
 }
 
 h1 {
@@ -26,6 +34,7 @@ h1 {
 h2, h3 {
   font-size: 20pt;
   text-align: center;
+  margin-bottom: 0.5em;
 }
 
 h5 {
@@ -43,7 +52,7 @@ ul {
 }
 
 li h5 {
-  margin: 0;
+  margin-bottom: 0.25em;
 }
 
 li p {
@@ -52,66 +61,84 @@ li p {
   margin-bottom: 10px;
 }
 
+/* Header */
 header {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   background-color: #5a5a5d;
   font-size: 17.5pt;
-  padding-left: 20px;
-  padding-top: 20px;
+  padding: 20px;
   text-align: left;
   color: white;
-  height: auto; 
+  height: auto;
+  gap: 8px;
 }
 
+/* Texto de sección */
 section {
   background-color: #8b8d92;
-  font-size: 8pt;
+  font-size: 10pt;
   color: white;
   padding: 20px;
   text-align: left;
-  height: auto; 
-  width: 95.8%;
+  width: 100%;
+  max-width: 95.8%;
+  margin: 0 auto 20px auto;
+  border-radius: 4px;
 }
 
+/* Contenedores principales */
 .container {
-  width: 50%;
+  max-width: 900px;
+  width: 90%;
   margin: 0 auto;
   border: 1px solid black;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  padding-bottom: 20px;
 }
 
 .container1 {
   display: flex;
+  flex-direction: row; 
+  gap: 20px;
+  flex-wrap: nowrap;
+  padding: 0 20px;
 }
 
 .container2 {
   display: flex;
   flex-direction: column;
   border: 1px solid black;
-  width: 250px;
-  height: 747px;
+  width: 260px;
+  min-height: 700px;
   text-align: left;
-  padding-left: 20pt;
-  padding-top: 60pt;
-  justify-content: space-around;
+  padding: 60px 20px 20px 20px;
+  justify-content: space-between;
   background-color: #3d2f36;
+  border-radius: 6px;
+  color: white;
 }
 
 .container3 {
+  flex-grow: 1;
   display: flex;
   flex-direction: column;
   text-align: left;
-  justify-content: space-around;
-  padding-left: 50pt;
+  justify-content: flex-start;
+  padding-left: 50px;
   margin-top: 30px;
+  gap: 40px;
 }
 
+/* Títulos container2 */
 .container2 h3 {
   color: white;
   text-align: left;
   position: relative;
-  text-decoration: none;
+  padding-bottom: 8px;
+  margin-bottom: 20px;
 }
 
 .container2 h3::after {
@@ -119,35 +146,40 @@ section {
   position: absolute;
   left: 55px;
   right: 30px;
-  bottom: -2mm;
+  bottom: 0;
   height: 3px;
   background-color: #5a5a5d;
 }
 
+/* Textos container2 */
 .container2 p {
-  color: white;
   font-size: 10pt;
+  line-height: 1.4;
 }
 
+/* Títulos container3 */
 .container3 h2 {
   font-size: 30pt;
   position: relative;
-  text-decoration: none;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
 }
 
 .container3 h2::after {
   content: '';
   position: absolute;
   left: 55px;
-  right: 0px;
-  bottom: -4mm;
+  right: 0;
+  bottom: 0;
   height: 4px;
   background-color: #5a5a5d;
 }
 
+/* Textos container3 */
 .container3 p {
   color: #5a5a5d;
   font-size: 10pt;
+  line-height: 1.4;
 }
 
 .container3 p::before {
@@ -157,12 +189,26 @@ section {
   margin-right: 1px;
 }
 
-button {
-  display: flex;
-  justify-content: flex-end;
+/* Botón modo oscuro */
+button#toggle-dark-mode {
+  align-self: flex-end;
   cursor: pointer;
+  background: transparent;
+  border: none;
+  font-size: 16pt;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
 }
 
+button#toggle-dark-mode:hover,
+button#toggle-dark-mode:focus {
+  background-color: rgba(255,255,255,0.15);
+  outline: none;
+}
+
+/* Iconos circulares */
 .icono-circular {
   background-color: #2e2328;
   color: white;
@@ -177,76 +223,79 @@ button {
 
 /* Modo oscuro */
 .dark-mode {
-  background: #121212;
-  color: white;
+  background-color: #121212;
+  color: #e0e0e0; 
 }
 
-/* Media Queries para hacerlo responsive */
-
-/* Cambios para pantallas más pequeñas */
-@media (max-width: 768px) {
-
-  header {
-    padding-left: 15px; 
-    padding-top: 15px;
-    font-size: 14pt; 
-    text-align: center; 
-  }
-
-  /* Para el section */
-  section {
-    padding-left: 10px; 
-    padding-right: 10px; 
-    font-size: 12pt;
-    text-align: center; 
-  }
-
-
-  .container {
-    width: 100%; 
-    border: none; 
-  }
-
-  .container1 {
-    flex-direction: column; 
-    padding-left: 10px; 
-  }
-
-  .container2 {
-    width: 100%; 
-    padding-left: 10px;
-    padding-top: 10px;
-  }
-
-  .container3 {
-    padding-left: 10px;
-  }
-
-  h1 {
-    font-size: 32pt;
-  }
-
-  h2 {
-    font-size: 20pt; 
-  }
+.dark-mode section {
+  background-color: #2a2a2a;
+  color: #ccc;
 }
 
-@media (max-width: 480px) {
-  /* Para dispositivos muy pequeños */
-  header {
-    font-size: 12pt;
-    padding-left: 10px;
-    padding-top: 10px;
-  }
+.dark-mode .container {
+  background-color: #1e1e1e;
+  border-color: #444;
+  color: #ddd;
+}
 
-  h1, h2 {
-    font-size: 28pt;
-  }
+.dark-mode .container2 {
+  background-color: #3a2f36; 
+  border-color: #555;
+  color: #eee;
+}
+
+.dark-mode .container3 {
+  color: #ddd;
+}
+
+.dark-mode h1,
+.dark-mode h2,
+.dark-mode h3,
+.dark-mode h5 {
+  color: #f0d9c1;
+}
+
+.dark-mode a {
+  color: #debfb0;
+}
+.dark-mode a:hover,
+.dark-mode a:focus {
+  color: #f5e1d4;
+}
+
+.dark-mode button#toggle-dark-mode {
+  color: #debfb0;
+}
+
+.dark-mode button#toggle-dark-mode:hover,
+.dark-mode button#toggle-dark-mode:focus {
+  background-color: rgba(222, 191, 176, 0.25);
+}
+
+.dark-mode .progress-bar .bar {
+  background-color: #665454;
+}
+
+.dark-mode .progress-bar .fill {
+  background-color: #debfb0;
+}
+
+.dark-mode .icono-circular {
+  background-color: #2a2127;
+  color: #debfb0;
+}
+
+.dark-mode p,
+.dark-mode li p {
+  color: #ccc;
+}
+
+.dark-mode .container2 h3::after,
+.dark-mode .container3 h2::after {
+  background-color: #555;
 }
 
 
-
-/* Barra de progreso */
 .progress-bar {
   display: flex;
   align-items: center;
@@ -274,13 +323,84 @@ button {
   background-color: #e0c1a3;
 }
 
+/* Responsividad */
+
+/* Mediano - tablet */
+@media (max-width: 768px) {
+  header {
+    padding-left: 15px;
+    padding-top: 15px;
+    font-size: 14pt;
+    text-align: center;
+  }
+
+  section {
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 12pt;
+    text-align: center;
+  }
+
+  .container {
+    width: 95%;
+    border: none;
+  }
+
+  .container1 {
+    flex-direction: column; /* apilar contenedores en móvil */
+    padding-left: 10px;
+    gap: 20px;
+  }
+
+  .container2,
+  .container3 {
+    width: 100%;
+    padding-left: 10px;
+    padding-top: 10px;
+    min-height: auto;
+    margin-top: 0;
+  }
+
+  .container3 {
+    margin-top: 20px; /* separación abajo */
+    padding-left: 10px;
+  }
+
+  h1 {
+    font-size: 32pt;
+  }
+
+  h2 {
+    font-size: 20pt;
+  }
+}
+
+/* Pequeño - móvil */
+@media (max-width: 480px) {
+  header {
+    font-size: 12pt;
+    padding-left: 10px;
+    padding-top: 10px;
+  }
+
+  h1, h2 {
+    font-size: 28pt;
+  }
+
+  button#toggle-dark-mode {
+    font-size: 14pt;
+    padding: 6px 10px;
+  }
+}
+
+/* Barra de progreso responsive */
 @media (max-width: 768px) {
   .progress-bar {
-    flex-direction: column; 
+    flex-direction: column;
   }
 
   .bar {
-    max-width: none; 
+    max-width: none;
     width: 100%;
   }
 }
